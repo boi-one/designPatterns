@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectPool : MonoBehaviour
+public class ObjectPool<T> where T : IPoolObject
 {
-    public List<IPoolObject> active = new List<IPoolObject>();
-    public List<IPoolObject> inactive = new List<IPoolObject>();
+    public List<T> active = new List<T>();
+    public List<T> inactive = new List<T>();
 
-    public void InstantiateObjects(int amount, IPoolObject obj)
+    public void InstantiateObjects(int amount)
     {
         for (int i = 0; i < amount; i++)
         {
@@ -16,4 +16,5 @@ public class ObjectPool : MonoBehaviour
             obj.SetObjectInactive();
         }
     }
+    
 }

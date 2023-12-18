@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class ManagePools : MonoBehaviour
@@ -11,7 +13,6 @@ public class ManagePools : MonoBehaviour
     void Start()
     {
         bullet = new Bullet(bulletPrefab);
-        bulletPool.InstantiateObjects(20, bullet);
+        bulletPool.InstantiateObjects(20, bullet);  
     }
-    
 }

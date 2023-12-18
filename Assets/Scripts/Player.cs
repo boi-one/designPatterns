@@ -45,18 +45,13 @@ public class Player : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Mouse0) && Time.time > bulletCooldown)
         {
-            Debug.Log("Bruh");
-            bulletCooldown = Time.time + cooldownTime;
-            
-            Debug.Log(ManagePools.bulletPool.active.Count);
-            Debug.Log(ManagePools.bulletPool.inactive.Count);
-            
-            if (ManagePools.bulletPool.inactive.Count == 0) return;
-            IPoolObject currentBullet = ManagePools.bulletPool.inactive[0];
-            ManagePools.bulletPool.active.Add(currentBullet);
-            ManagePools.bulletPool.inactive.Remove(currentBullet);
-            currentBullet.SetObjectActive();
-            Debug.Log(currentBullet.body.GetComponent<Rigidbody2D>().velocity);
+            if (ManagePools.bulletPool.inactive.Count != 0)
+            {
+                ManagePools.bulletPool.active.Add(ManagePools.bulletPool.inactive[0]);
+                ManagePools.bulletPool.inactive.Remove(ManagePools.bulletPool.inactive[0]);
+                Debug.Log("active: " + ManagePools.bulletPool.active.Count + " inacative: " + ManagePools.bulletPool.inactive.Count);
+                ManagePools.bulletPool.active[0].SetObjectActive();
+            }
         }
     }
 
