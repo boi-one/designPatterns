@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 33262045}
   - component: {fileID: 33262044}
   - component: {fileID: 33262048}
+  - component: {fileID: 33262049}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -271,6 +272,19 @@ MonoBehaviour:
   mouse: {fileID: 125076597}
   jumpforce: 9
   movementSpeed: 4
+--- !u!114 &33262049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 33262043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96b2ae513c858bf4688ee244274ee0a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 3312643538220199920, guid: 00513e74475996a40a9eaa3dc7c75c60, type: 3}
 --- !u!1 &125076597
 GameObject:
   m_ObjectHideFlags: 0
@@ -690,7 +704,6 @@ GameObject:
   m_Component:
   - component: {fileID: 485457107}
   - component: {fileID: 485457106}
-  - component: {fileID: 485457108}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -711,6 +724,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 3312643538220199920, guid: 00513e74475996a40a9eaa3dc7c75c60, type: 3}
+  bullet: {fileID: 0}
 --- !u!4 &485457107
 Transform:
   m_ObjectHideFlags: 0
@@ -725,18 +739,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &485457108
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 485457105}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ccb41c0b0fb42f41a8d020a2057b6ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

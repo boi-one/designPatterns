@@ -45,13 +45,7 @@ public class Player : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Mouse0) && Time.time > bulletCooldown)
         {
-            if (ManagePools.bulletPool.inactive.Count != 0)
-            {
-                ManagePools.bulletPool.active.Add(ManagePools.bulletPool.inactive[0]);
-                ManagePools.bulletPool.inactive.Remove(ManagePools.bulletPool.inactive[0]);
-                Debug.Log("active: " + ManagePools.bulletPool.active.Count + " inacative: " + ManagePools.bulletPool.inactive.Count);
-                ManagePools.bulletPool.active[0].SetObjectActive();
-            }
+            
         }
     }
 
