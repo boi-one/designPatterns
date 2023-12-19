@@ -24,7 +24,6 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        screenBorder = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height,0));
         playerPosition = transform.position;
         mousePosition = Input.mousePosition;
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
@@ -40,10 +39,9 @@ public class Player : MonoBehaviour
         {
             rb.velocity = new Vector2(0, rb.velocity.y);
         }
-        if (Input.GetKeyDown(KeyCode.Mouse0) && Time.time > bulletCooldown)
-        {
-            
-        }
+
+        if (transform.position.y < -2f)
+            transform.position = new Vector3(0, 0, 0);
     }
 
     public static Vector2 GetDirection(Vector2 playerPosition)
