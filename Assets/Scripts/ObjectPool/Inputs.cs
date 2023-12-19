@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Inputs : MonoBehaviour
@@ -10,21 +11,30 @@ public class Inputs : MonoBehaviour
     public static ObjectPool<Bullet> bulletPool;
     void Start()
     {
-        Debug.Log(bulletPrefab.GetComponent<Bullet>());
         bulletPool = new ObjectPool<Bullet>(bulletPrefab.GetComponent<Bullet>());
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 30; i++)
         {
             Bullet bullet = bulletPool.NewObject();
             bullet.Setup(bulletPool);
+            
         }
     }
     
     // Update is called once per frame
     void Update()
     {
-        if (UnityEngine.Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            Debug.Log("input");
+            Bullet bullet = bulletPool.RequestObject(transform.position) as Bullet;
+            if(bullet)
+                bullet.SetDirection(Player.GetDirection(Player.playerPosition), 5);
+        }
+
+        foreach (Bullet b in bulletPool.activePool.ToList())
+        {
+            if (b.transform.position.x > Player.screenBorder.x || b.transform.position.x < -Player.screenBorder.x ||
+                b.transform.position.y > Player.screenBorder.y || b.transform.position.y < -Player.screenBorder.y)
+                bulletPool.Inactive(b);
         }
     }
 }

@@ -1,11 +1,6 @@
 using System.Linq;
 using UnityEngine;
 
-/*
- *TODO:input system,
- * code meer generic
- */
-
 public class Player : MonoBehaviour
 {
     public GameObject bullet;
@@ -18,6 +13,7 @@ public class Player : MonoBehaviour
     public float movementSpeed;
     private float bulletCooldown = 0f;
     private float cooldownTime = .15f;
+    public static Vector3 screenBorder;
 
 
     // Start is called before the first frame update
@@ -28,6 +24,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        screenBorder = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height,0));
         playerPosition = transform.position;
         mousePosition = Input.mousePosition;
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
@@ -47,6 +44,11 @@ public class Player : MonoBehaviour
         {
             
         }
+    }
+
+    public static Vector2 GetDirection(Vector2 playerPosition)
+    {
+        return (mousePosition - new Vector2(playerPosition.x, playerPosition.y)).normalized;
     }
 
     void Move(Vector2 movement)
