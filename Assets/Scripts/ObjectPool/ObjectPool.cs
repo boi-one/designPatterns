@@ -30,6 +30,7 @@ public class ObjectPool<T> where T : MonoBehaviour, IPoolObject
     {
         T instantiated = GameObject.Instantiate(instance);
         inactivePool.Add(instantiated);
+        instantiated.Inactive();
         return instantiated;
     }
 

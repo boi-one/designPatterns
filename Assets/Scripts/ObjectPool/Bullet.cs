@@ -22,7 +22,7 @@ public class Bullet : MonoBehaviour, IPoolObject
 
     public void Inactive()
     {
-        rb.velocity = new Vector2(0, 0);
+        if(rb) rb.velocity = new Vector2(0, 0);
         gameObject.SetActive(false);
     }
     
