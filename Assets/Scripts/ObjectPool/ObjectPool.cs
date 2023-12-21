@@ -13,7 +13,7 @@ public class ObjectPool<T> where T : MonoBehaviour, IPoolObject
     {
         this.instance = instance;
     }
-
+    
     public IPoolObject RequestObject(Vector2 position)
     {
         if (inactivePool.Count == 0) return null;

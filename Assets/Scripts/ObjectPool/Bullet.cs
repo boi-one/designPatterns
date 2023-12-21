@@ -14,7 +14,7 @@ public class Bullet : MonoBehaviour, IPoolObject
         rb = GetComponent<Rigidbody2D>();
         objectPool = pool;
     }
-    
+
     public void Active()
     {
         gameObject.SetActive(true);
