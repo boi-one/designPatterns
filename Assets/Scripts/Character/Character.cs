@@ -7,8 +7,6 @@ public abstract class Character : MonoBehaviour
     public float health;
     public float speed;
 
-    public abstract void Move();
-
     public virtual void TakeDamage(float damage)
     {
         health -= damage;

@@ -55,9 +55,14 @@ public class Player : Character, ICommand
         
     }
     
-    public override void Move()
+    public void MoveLeft()
     {
-        rb.velocity = new Vector2(velocity.x * movementSpeed, rb.velocity.y);
+        rb.velocity = new Vector2(-1 * movementSpeed, rb.velocity.y);
+    }
+
+    public void MoveRight()
+    {
+        rb.velocity = new Vector2(1 * movementSpeed, rb.velocity.y);
     }
 
     public void Jump()
